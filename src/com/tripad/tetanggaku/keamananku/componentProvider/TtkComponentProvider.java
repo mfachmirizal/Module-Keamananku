@@ -15,7 +15,6 @@ import org.openbravo.client.kernel.ComponentProvider;
 @ComponentProvider.Qualifier(TtkComponentProvider.QUALIFIER)
 public class TtkComponentProvider  extends BaseComponentProvider {
   public static final String QUALIFIER = "TTK_COMPONENTPROVIDER";
-
   /*
    * (non-Javadoc)
    *
