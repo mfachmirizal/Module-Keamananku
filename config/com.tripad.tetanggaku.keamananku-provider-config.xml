@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <provider>
+   <bean>
+       <name>uploadimage</name>
+       <class>com.tripad.tetanggaku.keamananku.service.images.UploadImage</class>
+       <singleton>true</singleton>
+   </bean>
+ </provider>

@@ -1,0 +1,1 @@
+folder ini untuk keperluan menyimpan segala images dari hasil upload iamges android

@@ -1,0 +1,1 @@
+ini sebagai temporary dir untuk view image
