@@ -30,7 +30,8 @@ public class TtkComponentProvider  extends BaseComponentProvider {
   @Override
   public List<ComponentResource> getGlobalComponentResources() {
     final List<ComponentResource> globalResources = new ArrayList<ComponentResource>();
-                globalResources.add(createStaticResource("web/com.tripad.tetanggaku.keamananku/js/ttk-canvas-field.js", false));
+                globalResources.add(
+                        createStaticResource("web/com.tripad.tetanggaku.keamananku/js/ttk-canvas-field.js", false));
     return globalResources;
   }
 
