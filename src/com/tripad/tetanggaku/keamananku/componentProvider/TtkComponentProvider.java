@@ -10,11 +10,10 @@ import javax.enterprise.context.ApplicationScoped;
 import org.openbravo.client.kernel.BaseComponentProvider;
 import org.openbravo.client.kernel.Component;
 import org.openbravo.client.kernel.ComponentProvider;
-import org.openbravo.client.kernel.KernelConstants;
 
 @ApplicationScoped
 @ComponentProvider.Qualifier(TtkComponentProvider.QUALIFIER)
-public class TtkComponentProvider extends BaseComponentProvider {
+public class TtkComponentProvider  extends BaseComponentProvider {
   public static final String QUALIFIER = "TTK_COMPONENTPROVIDER";
 
   /*
