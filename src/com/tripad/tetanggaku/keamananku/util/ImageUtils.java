@@ -53,6 +53,6 @@ public class ImageUtils {
     }
     
     public String getImageLink(HttpServletRequest request,String namefile) throws Throwable{
-        return "http://"+InetAddress.getLocalHost().getHostAddress()+":"+request.getLocalPort()+"/"+ModuleUtils.APP_CONTEXT+"/web/"+ModuleUtils.ROOT_PACKAGE+"/dataimages/";
+        return "http://"+InetAddress.getLocalHost().getHostAddress()+":"+request.getLocalPort()+"/"+ModuleUtils.APP_CONTEXT+"/web/"+ModuleUtils.ROOT_PACKAGE+"/dataimages/"+namefile;
     }
 }
