@@ -37,10 +37,6 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="IMAGE_PATH" primaryKey="false" required="true" type="CLOB" size="4000" autoIncrement="false">
-        <default/>
-        <onCreateDefault/>
-      </column>
       <column name="IMAGE_NAME" primaryKey="false" required="true" type="CLOB" size="4000" autoIncrement="false">
         <default/>
         <onCreateDefault/>
