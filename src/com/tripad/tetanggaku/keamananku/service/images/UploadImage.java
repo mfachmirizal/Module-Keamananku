@@ -5,7 +5,7 @@
 package com.tripad.tetanggaku.keamananku.service.images;
 
 import com.tripad.tetanggaku.keamananku.data.TtkDataimage;
-import com.tripad.tetanggaku.keamananku.util.ModuleUtil;
+import com.tripad.tetanggaku.keamananku.util.ModuleUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,6 +35,8 @@ import java.io.ByteArrayOutputStream;
  *
  * @author M Fachmi Rizal
  */
+
+//TODO: ganti ke NIO
 public class UploadImage extends BaseWebServiceServlet  implements WebService  {
     
     private static final long serialVersionUID = 1L;
@@ -98,7 +100,7 @@ public class UploadImage extends BaseWebServiceServlet  implements WebService  {
                       //buffer = new ByteArrayOutputStream();
                         
                         outputStream =
-                                new FileOutputStream(new File((ModuleUtil.ROOT_DATA_IMAGES+File.separator)+fileName));
+                                new FileOutputStream(new File((ModuleUtils.ROOT_DATA_IMAGES+File.separator)+fileName));
 
                         int read = 0;
                         byte[] bytes = new byte[1024];
@@ -114,7 +116,6 @@ public class UploadImage extends BaseWebServiceServlet  implements WebService  {
                         tdi.setOrganization(OBContext.getOBContext().getCurrentOrganization());
                         tdi.setClient(OBContext.getOBContext().getCurrentClient());
                         tdi.setAndroidDevice(device_id);
-                        tdi.setImagePath(pathDataImages+fileName);
                         tdi.setImageLink("link-"+fileName);
                         tdi.setImageName(fileName);
 

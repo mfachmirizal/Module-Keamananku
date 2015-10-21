@@ -26,26 +26,39 @@ isc.TTK_OpenImageActionButton.addProperties({
     noTitle: false,
     title: 'Buka Gambar',
     click: function () {
-        var info = '';
+        var imgname = [],callback,linkTarget='',func = this;
         if (this.record) {
             console.log("Masuk sini1 : "+this.record['imageName']);
-            info = this.record[OB.Constants.IDENTIFIER];
+            imgname.push(this.record['imageName']);//this.record[OB.Constants.IDENTIFIER];
         } else if (this.canvasItem) {
             console.log("Masuk sini2 : "+this.canvasItem.form.getValue('imageName'));
-            info = this.canvasItem.form.getValue('imageName');
-            
-/*            var win = window.open('http://facebook.com/', '_blank');
-            if(win){
-                //Browser has allowed it to be opened
-                win.focus();
-            }else{
-                //Broswer has blocked it
-                alert('Please allow popups for this site');
-            }
-/* */
+            imgname.push(this.canvasItem.form.getValue('imageName'));
         }
-        info = "<br/> "+info;
-        isc.say(OB.I18N.getLabel('Ttk_Debug_Msg', info));
+        
+        //imgname[0] = 'http://www.google.co.id/?q=' + imgname[0];
+        
+        callback = function (rpcResponse, data, rpcRequest) {
+            //isc.say(OB.I18N.getLabel('Ttk_Debug_Msg', [data.handlerresult])); 
+            linkTarget = data.handlerresult;
+            console.log(linkTarget);
+            func.goto(linkTarget);
+        };
+        
+        OB.RemoteCallManager.call('com.tripad.tetanggaku.keamananku.erpCommon.handler.OpenImageHandler', {
+            imgname: imgname
+        }, {}, callback);
+//        imagename = "<br/> "+info;
+//        isc.say(OB.I18N.getLabel('Ttk_Debug_Msg', info));
+    },
+    goto: function(link) {
+        var win = window.open(link, '_blank');
+        if(win){
+            //Browser has allowed it to be opened
+            win.focus();
+        }else{
+            //Broswer has blocked it
+            isc.say(OB.I18N.getLabel('Ttk_AllowPopup_Msg')); //'Please allow popups for this site'
+        }
     }
 });
 
