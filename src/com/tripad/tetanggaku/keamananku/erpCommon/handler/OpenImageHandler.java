@@ -46,7 +46,7 @@ public class OpenImageHandler extends BaseActionHandler {
                 if (iu.transferImageTo(imageName,webserverDataImages)) {
                     //okay
                     //dapatkan link image
-//                    request.getSession().getServletContext().get
+//                    commit dan update dari laptop, btw mendapatkan link untuk gambar belum sempurna, jangan ada port
                     try {
                         hasil = iu.getImageLink(request,imageName);
                     } catch(Throwable t){
