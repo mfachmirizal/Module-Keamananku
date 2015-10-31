@@ -44,6 +44,7 @@ public class OpenImageHandler extends BaseActionHandler {
             
             try {
                 if (iu.transferImageTo(imageName,webserverDataImages)) {
+                    //okay
                     //dapatkan link image
 //                    request.getSession().getServletContext().get
                     try {
