@@ -14,7 +14,9 @@ import java.io.OutputStream;
 import java.io.Writer;
 import java.util.List;
 import javax.servlet.ServletException;
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
@@ -97,8 +99,22 @@ public class UploadImage extends BaseWebServiceServlet  implements WebService  {
                        // String fileString = item.getString(); //tanda
                     
                       
-                      //buffer = new ByteArrayOutputStream();
-                        
+                        Path filepath = Paths.get((ModuleUtils.ROOT_DATA_IMAGES+File.separator)+fileName);
+
+                        try ( OutputStream out = Files.newOutputStream(filepath)) {
+                        int read = 0;
+                        byte[] bytes = new byte[1024];
+
+                        while ((read = fileContent.read(bytes)) != -1) {
+                            out.write(bytes, 0, read);
+                            //out.write(fileContent);
+                        }
+                            
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+    /* deprecated                    
                         outputStream =
                                 new FileOutputStream(new File((ModuleUtils.ROOT_DATA_IMAGES+File.separator)+fileName));
 
@@ -108,11 +124,12 @@ public class UploadImage extends BaseWebServiceServlet  implements WebService  {
                         while ((read = fileContent.read(bytes)) != -1) {
                             outputStream.write(bytes, 0, read);
                         }
-   
+   */
                     }
                     tdi = OBProvider.getInstance().get(TtkDataimage.class);
                     try {
                         tdi.setActive(true);
+                        //edit client dan org, jadi berdasarkan nik pengirim
                         tdi.setOrganization(OBContext.getOBContext().getCurrentOrganization());
                         tdi.setClient(OBContext.getOBContext().getCurrentClient());
                         tdi.setAndroidDevice(device_id);

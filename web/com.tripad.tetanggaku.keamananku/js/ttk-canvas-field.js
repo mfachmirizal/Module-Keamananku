@@ -57,7 +57,7 @@ isc.TTK_OpenImageActionButton.addProperties({
             win.focus();
         }else{
             //Broswer has blocked it
-            isc.say(OB.I18N.getLabel('Ttk_AllowPopup_Msg')); //'Please allow popups for this site'
+            isc.say('Please allow popups for this site'); //'Please allow popups for this site'
         }
     }
 });
